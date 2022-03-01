@@ -3,13 +3,14 @@ name: 'Build and Release'
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   cdBuild:
     name: 'build'
     runs-on: ubuntu-latest
     steps:
-      - uses: inanme/github-ci@master
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Run a one-line script
-        run: echo Hello, world1!
+        run: ./cd-scripts/cdBuild.sh
